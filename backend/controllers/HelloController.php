@@ -8,6 +8,6 @@ class HelloController extends Controller
 {
     public function actionIndex()
     {
-        return "hello world from backend";
+        return $this -> render( 'index');
     }
 }

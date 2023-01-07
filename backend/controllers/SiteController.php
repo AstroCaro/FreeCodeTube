@@ -102,8 +102,4 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function actionHello()
-    {
-        return "Hola Mundo!";
-    }
 }
