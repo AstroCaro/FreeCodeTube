@@ -16,17 +16,17 @@ use yii\bootstrap5\Html;
         ]
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'Home', 'url' => ['/site/index']]
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = [
+            'label' => 'Login',
+            'url' => ['/site/login']
+        ];
     } else {
         $menuItems[] = [
             'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
             'url' => ['/site/logout'],
-            'options' => [
-                'class' => 'ms-auto'
-            ],
             'linkOptions' => [
                 'data-method' => 'post'
             ]
@@ -34,12 +34,12 @@ use yii\bootstrap5\Html;
     }
     //    echo \yii\helpers\Url::to(['/site/logout']);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav mb-2 mb-md-0 container-fluid'],
+        'options' => ['class' => 'navbar-nav mb-2 mb-md-0 ms-auto'],
         'items' => $menuItems,
     ]);
-    if (Yii::$app->user->isGuest) {
-        echo Html::tag('div', Html::a('Login', ['/site/login'], ['class' => ['btn btn-link login text-decoration-none']]), ['class' => ['d-flex']]);
-    } //else {
+    //    if (Yii::$app->user->isGuest) {
+    //        echo Html::tag('div', Html::a('Login', ['/site/login'], ['class' => ['btn btn-link login text-decoration-none']]), ['class' => ['d-flex']]);
+    //    } //else {
     //        echo Html::beginForm(['/site/logout'], 'post', ['class' => 'd-flex'])
     //            . Html::submitButton(
     //                'Logout (' . Yii::$app->user->identity->username . ')',
